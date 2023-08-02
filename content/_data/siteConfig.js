@@ -2,6 +2,7 @@ const packageJson = require("../../package.json");
 
 module.exports = {
   title: "Blognik",
+  description: "Agregator ciekawych polskojęzycznych blogów.",
   url: "https://blognik.pl",
   github: {
     project: "https://github.com/lwojcik/blognik.pl",
