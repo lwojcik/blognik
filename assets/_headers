@@ -1,7 +1,0 @@
-/*
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-
-/
-  cache-control: cache-control: public, max-age=0, must-revalidate
