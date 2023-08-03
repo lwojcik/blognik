@@ -52,8 +52,6 @@ module.exports = function (eleventyConfig) {
           descriptionMaxLen: siteConfig.maxPostLength,
         });
 
-        console.log(feedContent);
-
         return feedContent.entries
           .map((entry) => ({
             ...entry,
