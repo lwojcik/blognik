@@ -1,5 +1,6 @@
 const feedExtractor = import("@extractus/feed-extractor");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
+const pluginPWA = require("eleventy-plugin-pwa-v2");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const cacheAvatar = require("./_11ty/helpers/cacheAvatar");
 const addHash = require("./_11ty/helpers/addHash");
@@ -101,8 +102,40 @@ module.exports = function (eleventyConfig) {
 
   // --- Plugins
 
-  eleventyConfig.addPlugin(faviconsPlugin);
+  eleventyConfig.addPlugin(faviconsPlugin, {
+    manifestData: {
+      name: siteConfig.title,
+      lang: siteConfig.language,
+      short_name: siteConfig.title,
+      description: siteConfig.description,
+      start_url: "/",
+      scope: "/",
+      display: "standalone",
+      theme_color: "#191818",
+      background_color: "#191818",
+      orientation: "any",
+    },
+  });
   eleventyConfig.addPlugin(pluginRss);
+
+  eleventyConfig.addPlugin(pluginPWA, {
+    cacheId: "blognik",
+    runtimeCaching: [
+      {
+        urlPattern: /\/$/,
+        handler: "NetworkFirst",
+      },
+      {
+        urlPattern: /\.html$/,
+        handler: "NetworkFirst",
+      },
+      {
+        urlPattern:
+          /^.*\.(jpg|png|mp4|gif|webp|ico|svg|woff2|woff|eot|ttf|otf|ttc|json)$/,
+        handler: "StaleWhileRevalidate",
+      },
+    ],
+  });
 
   // --- Transforms
 
