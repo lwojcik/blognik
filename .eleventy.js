@@ -54,6 +54,7 @@ module.exports = function (eleventyConfig) {
         });
 
         return feedContent.entries
+          .slice(0, siteConfig.maxItemsPerFeed)
           .map((entry) => ({
             ...entry,
             avatar,
@@ -62,8 +63,7 @@ module.exports = function (eleventyConfig) {
               url,
             },
           }))
-          .sort((a, b) => new Date(b.published) - new Date(a.published))
-          .slice(0, siteConfig.maxItemsPerFeed);
+          .sort((a, b) => new Date(b.published) - new Date(a.published));
       });
 
       const allArticles = await getFulfilledValues(allSiteFeeds);
@@ -120,9 +120,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginPWA, {
     cacheId: "blognik",
-    globIgnores: [
-      'nortonsw_*.html'
-    ],
+    globIgnores: ["nortonsw_*.html"],
     runtimeCaching: [
       {
         urlPattern: /\/$/,
