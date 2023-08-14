@@ -10,6 +10,7 @@ const addRef = require("./_11ty/helpers/addRef");
 const minifyHTML = require("./_11ty/helpers/minifyHTML");
 const siteConfig = require("./content/_data/siteConfig");
 const minifyXML = require("./_11ty/helpers/minifyXML");
+const stripAndTruncateHTML = require("./_11ty/helpers/stripAndTruncateHTML");
 
 module.exports = function (eleventyConfig) {
   // --- Copy assets
@@ -51,6 +52,18 @@ module.exports = function (eleventyConfig) {
 
         const feedContent = await extractor.extract(feed, {
           descriptionMaxLen: siteConfig.maxPostLength,
+          getExtraEntryFields: (feedEntry) => {
+            const cdataDescription = feedEntry.description.includes("<![CDATA[")
+              ? stripAndTruncateHTML(
+                  feedEntry.description
+                    .replaceAll("<![CDATA[", "")
+                    .replaceAll("]]>'", ""),
+                  siteConfig.maxPostLength
+                )
+              : "";
+
+            return { cdataDescription };
+          },
         });
 
         const feedEntries = feedContent.entries
