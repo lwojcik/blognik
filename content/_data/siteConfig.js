@@ -8,6 +8,7 @@ module.exports = {
     project: "https://github.com/lwojcik/blognik.pl",
     issue: "https://github.com/lwojcik/blognik.pl/issues/new",
   },
+  userAgent: "Blognik.pl",
   addRefToExternalLinks: false,
   ref: "blognik.pl",
   language: "pl",

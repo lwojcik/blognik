@@ -52,6 +52,9 @@ module.exports = function (eleventyConfig) {
 
         const feedContent = await extractor.extract(feed, {
           descriptionMaxLen: siteConfig.maxPostLength,
+          headers: {
+            "user-agent": siteConfig.userAgent,
+          },
         });
 
         const feedEntries = feedContent.entries
