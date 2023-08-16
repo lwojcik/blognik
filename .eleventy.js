@@ -52,18 +52,6 @@ module.exports = function (eleventyConfig) {
 
         const feedContent = await extractor.extract(feed, {
           descriptionMaxLen: siteConfig.maxPostLength,
-          getExtraEntryFields: (feedEntry) => {
-            const cdataDescription = feedEntry.description.includes("<![CDATA[")
-              ? stripAndTruncateHTML(
-                  feedEntry.description
-                    .replaceAll("<![CDATA[", "")
-                    .replaceAll("]]>'", ""),
-                  siteConfig.maxPostLength
-                )
-              : "";
-
-            return { cdataDescription };
-          },
         });
 
         const feedEntries = feedContent.entries
