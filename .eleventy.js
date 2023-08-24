@@ -54,6 +54,16 @@ module.exports = function (eleventyConfig) {
           headers: {
             "user-agent": siteConfig.userAgent,
           },
+          getExtraEntryFields: (item) => {
+            if (!item.description) {
+              return {
+                description: stripAndTruncateHTML(
+                  item.content["#text"],
+                  siteConfig.maxPostLength
+                ),
+              };
+            }
+          },
         });
 
         const feedEntries = feedContent.entries
