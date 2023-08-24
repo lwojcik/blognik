@@ -29,6 +29,6 @@ module.exports = {
   dateFormats: {
     readable: "dd.MM.yyyy",
   },
-  maxPostLength: 500,
+  maxPostLength: 400,
   maxItemsPerFeed: 10,
 };
