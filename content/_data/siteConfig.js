@@ -23,7 +23,6 @@ module.exports = {
     homepage: "https://lukaszwojcik.net/",
     contact: "https://lukaszwojcik.net/contact/",
     blog: "https://offbeatbits.com/",
-    mastodon: "https://pol.social/@lukem",
     linkedin: "https://www.linkedin.com/in/lukaszwojcik/",
   },
   dateFormats: {
