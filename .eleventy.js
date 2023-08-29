@@ -1,3 +1,4 @@
+const EleventyFetch = require("@11ty/eleventy-fetch");
 const feedExtractor = import("@extractus/feed-extractor");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -47,13 +48,20 @@ module.exports = function (eleventyConfig) {
 
       const allSiteFeeds = blogs.map(async (blog) => {
         const { data } = blog;
-        const { name, url, avatar, feed } = data;
+        const { name, url, avatar, feed, type: feedType } = data;
 
-        const feedContent = await extractor.extract(feed, {
-          descriptionMaxLen: siteConfig.maxPostLength,
-          headers: {
-            "user-agent": siteConfig.userAgent,
+        const feedData = await EleventyFetch(feed, {
+          duration: siteConfig.localCacheDuration,
+          type: feedType === "json" ? "json" : "text",
+          verbose: process.env.ELEVENTY_ENV === "development",
+          fetchOptions: {
+            headers: {
+              "user-agent": siteConfig.userAgent,
+            },
           },
+        });
+
+        const extractOptions = {
           getExtraEntryFields: (item) => {
             if (!item.description) {
               return {
@@ -64,10 +72,14 @@ module.exports = function (eleventyConfig) {
               };
             }
           },
-        });
+        };
 
-        const feedEntries = feedContent.entries
-          .slice(0, siteConfig.maxItemsPerFeed)
+        const feedContent =
+          feedType === "json"
+            ? extractor.extractFromJson(feedData, extractOptions)
+            : extractor.extractFromXml(feedData, extractOptions);
+
+        return feedContent.entries
           .map((entry) => ({
             ...entry,
             avatar,
@@ -76,9 +88,8 @@ module.exports = function (eleventyConfig) {
               url,
             },
           }))
-          .sort((a, b) => new Date(b.published) - new Date(a.published));
-
-        return feedEntries;
+          .sort((a, b) => new Date(b.published) - new Date(a.published))
+          .slice(0, siteConfig.maxItemsPerFeed);
       });
 
       const allArticles = await getFulfilledValues(allSiteFeeds);
@@ -131,6 +142,7 @@ module.exports = function (eleventyConfig) {
       orientation: "any",
     },
   });
+
   eleventyConfig.addPlugin(pluginRss);
 
   // --- Transforms
