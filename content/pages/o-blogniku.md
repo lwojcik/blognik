@@ -21,12 +21,12 @@ Jestem [Łukasz]({{ siteConfig.author.homepage }}), mieszkam w Warszawie. Miło 
 
 Jeśli piszesz po polsku i jako-tako regularnie, a Twój blog posiada kanał RSS lub JSON - chętnie rozważę.
 
-[Napisz do mnie]({{ siteConfig.author.contact }}) albo zagadaj na [Mastodonie]({{ siteConfig.author.mastodon }}) lub [LinkedIn]({{ siteConfig.author.linkedin }}).
+[Napisz do mnie]({{ siteConfig.author.contact }}) albo zagadaj na [LinkedIn]({{ siteConfig.author.linkedin }}).
 
-## Mój blog już tu jest, ale chcę coś zmienić
+## Mój blog już tu jest, ale chcę coś zmienić / nie chcę żeby mój blog dalej tu był
 
 Nie ma sprawy! [Skontaktuj się ze mną]({{ siteConfig.author.contact }}) lub [dodaj zgłoszenie na GitHubie]({{ siteConfig.github.issue }}). Postaram się odpowiedzieć tak szybko, jak to możliwe.
 
 ## Czy ja też mogę postawić sobie taką stronę?
 
-Tak! Ta strona ma dość nieskomplikowaną budowę. Niebawem dodam więcej informacji jak to zrobić - póki co możesz skorzystać z [pakietu startowego opartego o Eleventy](https://github.com/lwojcik/eleventy-template-multiplicity).
+Tak! Ta strona ma dość nieskomplikowaną budowę. Możesz w tym celu skorzystać z [pakietu startowego opartego o generator Eleventy](https://github.com/lwojcik/eleventy-template-multiplicity).
