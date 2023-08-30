@@ -29,4 +29,4 @@ Nie ma sprawy! [Skontaktuj się ze mną]({{ siteConfig.author.contact }}) lub [d
 
 ## Czy ja też mogę postawić sobie taką stronę?
 
-Tak! Ta strona ma dość nieskomplikowaną budowę. Możesz w tym celu skorzystać z [pakietu startowego opartego o generator Eleventy](https://github.com/lwojcik/eleventy-template-multiplicity).
+Tak! Możesz w tym celu skorzystać z [pakietu startowego opartego o generator Eleventy](https://github.com/lwojcik/eleventy-template-multiplicity).
