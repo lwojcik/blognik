@@ -2,7 +2,7 @@ name: Deploy static site
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0,8,16 * * *"
+    - cron: "54 4,12,20 * * *"
 
 jobs:
   DeploySite:
