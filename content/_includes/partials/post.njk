@@ -11,9 +11,11 @@
     <span>{{ published }}</span>
   </time>
 </div>
-{% if item.description %}
-<p>{{ item.description | safe }}</p>
-{% else %}
-<p>{{ item.cdataDescription | safe }}</p>
-{% endif %}
+<p>
+  {% if item.htmlDescription %}
+    {{ item.htmlDescription }}
+  {% elif item.description %}
+    {{ item.description }}
+  {% endif %}
+</p>
 </article>
