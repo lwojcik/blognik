@@ -3,6 +3,7 @@ layout: page
 title: Zagadnienia prawne
 eleventyExcludeFromCollections: true
 permalink: /zagadnienia-prawne/
+canonical: /zagadnienia-prawne/
 ---
 
 Wszelkie prawa do treści prezentowanych na tej stronie należą do ich właścicieli.

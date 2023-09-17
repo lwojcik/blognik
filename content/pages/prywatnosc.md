@@ -3,6 +3,7 @@ layout: page
 title: Polityka prywatności
 eleventyExcludeFromCollections: true
 permalink: /prywatnosc/
+canonical: /prywatnosc/
 ---
 
 Ta strona stara się jak najbardziej szanować Twoją prywatność.

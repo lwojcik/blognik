@@ -3,6 +3,7 @@ layout: page
 title: O Blogniku
 eleventyExcludeFromCollections: true
 permalink: /o-blogniku/
+canonical: /o-blogniku/
 ---
 
 **Blognik** to agregator blogów pisanych przez fantastycznych ludzi, których spotkałem w internetach.
