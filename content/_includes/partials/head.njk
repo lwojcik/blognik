@@ -21,6 +21,7 @@
 <link rel="canonical" href="{{ canonical | alwaysProductionUrl }}" />
 {%- endif -%}
 <script src="{{ '/js/scripts.js' | addHash }}"></script>
+<meta name="robots" content="noai, noimageai">
 <meta name="generator" content="{{ siteConfig.generator.name }} v{{ siteConfig.generator.version }}">
 {% favicons 'assets/favicon.svg', appleIconBgColor='#000' %}
 <script>
