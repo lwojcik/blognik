@@ -1,7 +1,7 @@
 ---
-name: Offbeat Bits (PL)
-url: https://offbeatbits.com/pl/
-avatar: https://offbeatbits.com/favicon.svg
-feed: https://offbeatbits.com/excerpts-pl.xml
+name: Łukasz Wójcik (PL)
+url: https://blog.lukaszwojcik.net/pl/
+avatar: https://blog.lukaszwojcik.net/favicon.svg
+feed: https://blog.lukaszwojcik.net/excerpts-pl.xml
 hideFromBlogList: true
 ---
