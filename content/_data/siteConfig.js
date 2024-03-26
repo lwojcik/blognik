@@ -5,8 +5,8 @@ module.exports = {
   description: "Agregator ciekawych polskojęzycznych blogów",
   url: "https://blognik.pl",
   github: {
-    project: "https://github.com/lwojcik/blognik.pl",
-    issue: "https://github.com/lwojcik/blognik.pl/issues/new",
+    project: "https://github.com/lwojcik/blognik",
+    issue: "https://github.com/lwojcik/blognik/issues/new",
   },
   userAgent: "Blognik.pl",
   addRefToExternalLinks: false,
